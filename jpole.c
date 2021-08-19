@@ -44,4 +44,4 @@ void jpole_print(float *f, float *unit_factor, float *lambda, float *l1, float *
 	printf("\n");
 	printf("\n");
 	printf("\n");
-	}
+}
