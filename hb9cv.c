@@ -39,7 +39,7 @@ void hb9cv_calc (float *f, float *unit_factor, float *lambda, float *l1, float *
 }
 
 void hb9cv_print (float *f, float *unit_factor, float *lambda, float *l1, float *l2, float *l3, float *l4, float *l5, float *bdiam, float *raddiam, int *unit_index){
-    printf(" Calculated for %f mHz\n", *f);
+    printf(" Calculated for %f MHz\n", *f);
     printf("\n");
     printf(" Lambda is %f mm\n", *lambda);
     printf(" L1 Driven Element is %f ", *l1); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
