@@ -18,13 +18,14 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <stdio.h>
 #include "hb9cv.h"
-
+/*
 void printunits (int *unit_index){
     switch(*unit_index){
     	case 1: printf("mm\n"); break;
     	case 2: printf("inch\n"); break;
     }
 }
+*/
 
 void hb9cv_calc (float *f, float *unit_factor, float *lambda, float *l1, float *l2, float *l3, float *l4, float *l5, float *bdiam, float *raddiam){
     *lambda = ( 30000000 / *f) / 100;
@@ -41,13 +42,13 @@ void hb9cv_print (float *f, float *unit_factor, float *lambda, float *l1, float 
     printf(" Calculated for %f mHz\n", *f);
     printf("\n");
     printf(" Lambda is %f mm\n", *lambda);
-    printf(" L1 Driven Element is %f ", *l1); printunits(&*unit_index);
-    printf(" L2 Reflector is %f ", *l2); printunits(&*unit_index);
-    printf(" L3 element spaceing is %f ", *l3); printunits(&*unit_index);
-    printf(" L4 Matching on dr. element is %f ", *l4); printunits(&*unit_index);
-    printf(" L5 Matching on reflector is %f ", *l5); printunits(&*unit_index);
-    printf(" Boom Diam. is %f ", *bdiam); printunits(&*unit_index);
-    printf(" Radiator Diam. is %f ", *raddiam); printunits(&*unit_index);
+    printf(" L1 Driven Element is %f ", *l1); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" L2 Reflector is %f ", *l2); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" L3 element spaceing is %f ", *l3); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" L4 Matching on dr. element is %f ", *l4); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" L5 Matching on reflector is %f ", *l5); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" Boom Diam. is %f ", *bdiam); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
+    printf(" Radiator Diam. is %f ", *raddiam); switch(*unit_index){ case 1: printf("mm\n"); break; case 2: printf("inch\n"); break; };
     printf("\n");
     printf("  connect feed on this side \n");
     printf("  --------------------------L1 \n");

@@ -15,7 +15,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include <stdio.h>
 #include "hb9cv.h"
-
+#include "jpole.h"
 //#include <stdlib.h>
 
 void clear_scr(void){
@@ -101,9 +101,13 @@ int main(){
                     break;
             case 2: clear_scr();set_units_system(&unit_factor ,&unit_index );
                     break;
-            //case 3: printf("Not yet"); break;
-            //case 4: printf("Not yet"); break;
-            case 5: hb9cv_calc(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam);
+            case 3: clear_scr();
+                    jpole_calc(&f, &unit_factor,&lambda, &l1, &l2, &l3, &l4, &raddiam);
+                    jpole_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &raddiam, &unit_index);
+                    break;
+            case 4: printf("Not yet"); break;
+            case 5: clear_scr();
+                    hb9cv_calc(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam);
                     hb9cv_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam, &unit_index);
                     break;
             // default: maybe easteregg in future
