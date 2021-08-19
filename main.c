@@ -20,7 +20,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 //#include <stdlib.h>
 
 void clear_scr(void){
-	//printf("\033[H");  //brings cursor home
+	printf("\033[H");  //brings cursor home
 	printf("\x1b[2J"); //clears screen
 }
 
@@ -31,7 +31,23 @@ void printunit (int *unit_index){ // prints the selected unit
     }
 }
 
+void myflush ( FILE *in )
+{
+  int ch;
 
+  do
+    ch = fgetc ( in );
+  while ( ch != EOF && ch != '\n' );
+
+  clearerr ( in );
+}
+
+void mypause ( void )
+{
+  printf ( "Press [Enter] to continue . . ." );
+  fflush ( stdout );
+  getchar();
+}
 
 void set_freq(float *f){ // change the MHz
     float input;
@@ -105,14 +121,20 @@ int main(){
             case 3: clear_scr();
                     jpole_calc(&f, &unit_factor,&lambda, &l1, &l2, &l3, &l4, &raddiam);
                     jpole_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &raddiam, &unit_index);
+                    myflush ( stdin );
+                    mypause();
                     break;
             case 4: clear_scr();
                     gp_calc(&f, &unit_factor,&lambda, &l1, &l2);
                     gp_print(&f ,&unit_factor, &lambda, &l1, &l2, &unit_index);
+                    myflush ( stdin );
+                    mypause();
                     break;
             case 5: clear_scr();
                     hb9cv_calc(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam);
                     hb9cv_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam, &unit_index);
+                    myflush ( stdin );
+                    mypause();
                     break;
             // default: maybe easteregg in future
     	}

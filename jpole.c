@@ -2,7 +2,6 @@
 #include "jpole.h"
 
 
-
 void jpole_calc(float *f, float *unit_factor, float *lambda, float *l1, float *l2, float *l3, float *l4, float *raddiam){
     *lambda = ( 29971000 / *f ) / 100;
     *l1 = (0.96 * *lambda * 0.75) * *unit_factor;
@@ -45,4 +44,4 @@ void jpole_print(float *f, float *unit_factor, float *lambda, float *l1, float *
 	printf("\n");
 	printf("\n");
 	printf("\n");
-}
+	}
