@@ -16,10 +16,11 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include <stdio.h>
 #include "hb9cv.h"
 #include "jpole.h"
+#include "groundplane.h"
 //#include <stdlib.h>
 
 void clear_scr(void){
-	printf("\033[H");  //brings cursor home
+	//printf("\033[H");  //brings cursor home
 	printf("\x1b[2J"); //clears screen
 }
 
@@ -105,7 +106,10 @@ int main(){
                     jpole_calc(&f, &unit_factor,&lambda, &l1, &l2, &l3, &l4, &raddiam);
                     jpole_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &raddiam, &unit_index);
                     break;
-            case 4: printf("Not yet"); break;
+            case 4: clear_scr();
+                    gp_calc(&f, &unit_factor,&lambda, &l1, &l2);
+                    gp_print(&f ,&unit_factor, &lambda, &l1, &l2, &unit_index);
+                    break;
             case 5: clear_scr();
                     hb9cv_calc(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam);
                     hb9cv_print(&f ,&unit_factor, &lambda, &l1, &l2, &l3, &l4, &l5, &bdiam, &raddiam, &unit_index);
