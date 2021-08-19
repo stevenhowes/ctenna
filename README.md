@@ -1,2 +1,2 @@
 # ctenna
-ctenna - a multi antenna calulator for console, written in C
+ctenna - a multi antenna calculator for console, written in C
