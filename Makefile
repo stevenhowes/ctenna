@@ -1,14 +1,14 @@
-ctenna: main.o hb9cv.o jpole.o groundplane.c
-	gcc -o ctenna main.o hb9cv.o jpole.o groundplane.c
+ctenna: main.o hb9cv.o jpole.o groundplane.o
+	cc -o ctenna main.o hb9cv.o jpole.o groundplane.o
 
 main.o: main.c
-	gcc -c main.c
+	cc -c main.c
 
 hb9cv.o: hb9cv.c
-	gcc -c hb9cv.c
+	cc -c hb9cv.c
 
 jpole.o: jpole.c
-	gcc -c jpole.c
+	cc -c jpole.c
 
 groundplane.o: groundplane.c
-	gcc -c groundplane.c
+	cc -c groundplane.c
