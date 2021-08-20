@@ -108,12 +108,13 @@ int main(){
 
     while (main_menu_sel != 0){ // main menu loop runs until "0" for quit
 
-        main_menu(&f, &unit_index);
-        main_menu_sel = menu_select();
+        main_menu(&f, &unit_index); //prints menu
+        main_menu_sel = menu_select(); 
 
 
         switch(main_menu_sel){
 
+	    case 0: return 0;
             case 1: clear_scr();set_freq(&f);
                     break;
             case 2: clear_scr();set_units_system(&unit_factor ,&unit_index );
@@ -136,7 +137,7 @@ int main(){
                     myflush ( stdin );
                     mypause();
                     break;
-            // default: maybe easteregg in future
+            default:printf("And then?");return 1; //maybe easteregg in future
     	}
     }
     clear_scr();
