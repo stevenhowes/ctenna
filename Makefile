@@ -1,3 +1,6 @@
+clean:
+	rm -f *.o ctenna
+	
 ctenna: main.o hb9cv.o jpole.o groundplane.o
 	cc -o ctenna main.o hb9cv.o jpole.o groundplane.o
 
